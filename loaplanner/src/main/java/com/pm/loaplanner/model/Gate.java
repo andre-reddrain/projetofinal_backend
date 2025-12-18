@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
-import java.util.Set;
 
 @Entity
 @Data
@@ -12,20 +11,20 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "raids")
-public class Raid {
+@Table(name = "gates")
+public class Gate {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private UUID id;
 
+    @Column(name = "number")
+    private Integer number;
+
     @Column(name = "name")
     private String name;
 
-    @Column(name = "icon")
-    private String icon;
-
-    //OneToMany
-    @OneToMany(mappedBy = "raid", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Gate> gates;
+    @ManyToOne
+    @JoinColumn(name = "raid_id", referencedColumnName = "id")
+    private Raid raid;
 }
