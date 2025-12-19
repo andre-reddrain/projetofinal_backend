@@ -5,9 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RaidResponseDTO {
+public class GateDTO {
     private String id;
     private String name;
-    private String type;
-    private String icon;
+    private int number;
 }

@@ -3,6 +3,7 @@ package com.pm.loaplanner.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 import java.util.Set;
 
@@ -29,6 +30,6 @@ public class Raid {
     private String icon;
 
     //OneToMany
-    @OneToMany(mappedBy = "raid", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Gate> gates;
+    @OneToMany(mappedBy = "raid", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Gate> gates;
 }
