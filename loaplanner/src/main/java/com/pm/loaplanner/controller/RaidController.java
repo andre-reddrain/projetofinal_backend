@@ -26,5 +26,7 @@ public class RaidController {
         // Deve ser por isso que o GET não recolhe nada!
         List<RaidResponseDTO> raids = raidService.getAllRaids();
         return ResponseEntity.ok().body(raids);
+
+        //TODO Refazer isto para os Gates! Ver como fazer nest! Talvez Raid-Gates?
     }
 }

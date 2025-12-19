@@ -22,6 +22,9 @@ public class Raid {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "type")
+    private String type;
+
     @Column(name = "icon")
     private String icon;
 

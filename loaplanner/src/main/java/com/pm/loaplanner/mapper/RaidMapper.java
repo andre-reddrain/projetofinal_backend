@@ -8,6 +8,7 @@ public class RaidMapper {
         RaidResponseDTO raidDTO = new RaidResponseDTO();
         raidDTO.setId(raid.getId().toString());
         raidDTO.setName(raid.getName());
+        raidDTO.setType(raid.getType());
         raidDTO.setIcon(raid.getIcon());
         return raidDTO;
     }
