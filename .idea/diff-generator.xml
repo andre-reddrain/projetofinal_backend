@@ -3,6 +3,8 @@
   <component name="DiffGenerationConfig">
     <option name="snapshotDb" value="false" />
     <option name="snapshotModelValue" value="loaplanner:loaplanner" />
+    <option name="sourceDbValue" value="dce0c6d3-4478-46ec-b86f-2311f740df02" />
+    <option name="sourceDiffType" value="DB" />
     <option name="sourceModelValue" value="loaplanner:loaplanner" />
     <option name="targetDbValue" value="dce0c6d3-4478-46ec-b86f-2311f740df02" />
   </component>

@@ -56,4 +56,8 @@ INSERT INTO gates(id, name, number, raid_id) VALUES
 (UUID_TO_BIN('2b9c835a-dc76-11f0-a6e8-0a0027000013'), "Armoche, Sentinel of the Abyss", 2, UUID_TO_BIN('09e18706-dc67-11f0-a6e8-0a0027000013')),
 -- Kazeros
 (UUID_TO_BIN('2b9c840d-dc76-11f0-a6e8-0a0027000013'), "Abyss Lord Kazeros", 1, UUID_TO_BIN('09e18775-dc67-11f0-a6e8-0a0027000013')),
-(UUID_TO_BIN('2b9c84c2-dc76-11f0-a6e8-0a0027000013'), "Archdemon Kazeros", 2, UUID_TO_BIN('09e18775-dc67-11f0-a6e8-0a0027000013'));
+(UUID_TO_BIN('2b9c84c2-dc76-11f0-a6e8-0a0027000013'), "Archdemon Kazeros", 2, UUID_TO_BIN('09e18775-dc67-11f0-a6e8-0a0027000013'))
+ON DUPLICATE KEY UPDATE
+     name = IF(name <> VALUES(name), VALUES(name), name),
+     number = IF(number <> VALUES(number), VALUES(number), number),
+     raid_id = IF(raid_id <> VALUES(raid_id), VALUES(raid_id), raid_id);

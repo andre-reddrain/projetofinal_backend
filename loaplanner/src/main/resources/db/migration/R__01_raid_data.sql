@@ -14,4 +14,8 @@ INSERT INTO raids (id, name, type, icon) VALUES
 (UUID_TO_BIN('09e185d7-dc67-11f0-a6e8-0a0027000013'), 'Act 2: Brelshaza', 'Kazeros Raid', null),
 (UUID_TO_BIN('09e1868d-dc67-11f0-a6e8-0a0027000013'), 'Act 3: Mordum', 'Kazeros Raid', null),
 (UUID_TO_BIN('09e18706-dc67-11f0-a6e8-0a0027000013'), 'Act 4: Armoche', 'Kazeros Raid', null),
-(UUID_TO_BIN('09e18775-dc67-11f0-a6e8-0a0027000013'), 'Final Day: Kazeros', 'Kazeros Raid', null);
+(UUID_TO_BIN('09e18775-dc67-11f0-a6e8-0a0027000013'), 'Final Day: Kazeros', 'Kazeros Raid', null)
+ON DUPLICATE KEY UPDATE
+    name = IF(name <> VALUES(name), VALUES(name), name),
+    type = IF(type <> VALUES(type), VALUES(type), type),
+    icon = IF(icon <> VALUES(icon), VALUES(icon), icon);
