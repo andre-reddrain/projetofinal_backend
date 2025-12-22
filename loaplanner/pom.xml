@@ -115,6 +115,19 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>11.10.4</version>
+                <configuration>
+                    <user>root</user>
+                    <password>root</password>
+                    <url>jdbc:mysql://localhost:3306/loaplanner</url>
+                    <schemas>
+                        <schema>loaplanner</schema>
+                    </schemas>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
