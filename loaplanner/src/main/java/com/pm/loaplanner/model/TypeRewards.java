@@ -3,9 +3,7 @@ package com.pm.loaplanner.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 import java.util.UUID;
-import java.util.Set;
 
 @Entity
 @Data
@@ -13,8 +11,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "raids")
-public class Raid {
+@Table(name = "type_rewards")
+public class TypeRewards {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -23,13 +21,15 @@ public class Raid {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "type")
-    private String type;
+    @Column(name = "tier")
+    private int tier;
+
+    @Column(name = "class_type")
+    private String classType;
+
+    @Column(name = "grade")
+    private String grade;
 
     @Column(name = "icon")
     private String icon;
-
-    //OneToMany
-    @OneToMany(mappedBy = "raid", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Gate> gates;
 }

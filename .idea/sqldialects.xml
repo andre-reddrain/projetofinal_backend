@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/R__01_raid_data.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/R__02_gate_data.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/R__03_type_rewards_data.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/R__04_character_classes_data.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/R__05_difficulties_data.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/R__06_gate_details_data.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/R__07_activities_data.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/V1__init_migration.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/V2__type_rewards_table.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/V5__gate_details_table.sql" dialect="GenericSQL" />
+    <file url="PROJECT" dialect="MySQL" />
+  </component>
+</project>
