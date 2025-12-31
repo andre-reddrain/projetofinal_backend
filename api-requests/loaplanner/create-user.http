@@ -1,0 +1,14 @@
+### GET request to example server
+POST http://localhost:8080/user/register
+Content-Type: application/json
+
+{
+  "username": "Teste Insert",
+  "email": "t2@t.com",
+  "password": "1234567890",
+  "confirmPassword": "1234567890"
+}
+
+### Gives 403. Why??
+
+###

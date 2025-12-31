@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/raids")   // http://localhost:8080/raids
+@RequestMapping("/api/raids")
 public class RaidController {
     private final RaidService raidService;
 
@@ -20,10 +20,6 @@ public class RaidController {
 
     @GetMapping
     public ResponseEntity<List<RaidDTO>> getAllRaids() {
-        // O Get Request não chega a entrar aqui. Talvez seja por causa do MySQL?
-        // A ligação á base de dados funciona, mas não recolhe nada
-        // Acho que o problema é o Spring Security. Interceta qualquer request e da redirect para /login.
-        // Deve ser por isso que o GET não recolhe nada!
         List<RaidDTO> raids = raidService.getAllRaids();
         return ResponseEntity.ok().body(raids);
     }
