@@ -16,9 +16,10 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> {
                 auth.requestMatchers("/api/**").permitAll();
+                auth.requestMatchers("/user/register").permitAll();
                 auth.anyRequest().authenticated();
             })
-            .csrf(csrf -> csrf.ignoringRequestMatchers("/h2/**", "/api/**"))
+            .csrf(csrf -> csrf.ignoringRequestMatchers("/user/**", "/api/**"))
             .headers(headers -> headers.frameOptions(frame -> frame.disable()));
         return http.build();
     }
