@@ -1,0 +1,11 @@
+ALTER TABLE characters
+    MODIFY class_id BINARY(16) NOT NULL;
+
+ALTER TABLE characters
+    MODIFY ilvl DOUBLE NOT NULL;
+
+ALTER TABLE characters
+    MODIFY name VARCHAR(255) NOT NULL;
+
+ALTER TABLE characters
+    MODIFY user_id BINARY(16) NOT NULL;

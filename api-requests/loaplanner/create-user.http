@@ -1,4 +1,4 @@
-### GET request to example server
+### POST Request Create a User (Register)
 POST http://localhost:8080/user/register
 Content-Type: application/json
 
@@ -8,7 +8,5 @@ Content-Type: application/json
   "password": "1234567890",
   "confirmPassword": "1234567890"
 }
-
-### Gives 403. Why??
 
 ###

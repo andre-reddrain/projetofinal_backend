@@ -1,0 +1,12 @@
+### POST Request Create a Character
+POST http://localhost:8080/api/character
+Content-Type: application/json
+
+{
+  "userId": "223e4567-e89b-12d3-a456-426614174006",
+  "classId": "ffe21845-ded0-11f0-a6e8-0a0027000013",
+  "name": "Test Character",
+  "description": "Test Description",
+  "ilvl": 1445.0
+}
+###
