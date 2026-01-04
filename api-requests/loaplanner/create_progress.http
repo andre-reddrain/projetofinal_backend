@@ -1,0 +1,10 @@
+### POST Request Create a Character Gate Progress
+POST http://localhost:8080/api/progress
+Content-Type: application/json
+
+{
+  "buyExtraLoot": false,
+  "characterId": "cd088823-d8b0-498e-a6e7-ae3a5f111b0b",
+  "gateDetailId": "55b0b980-e081-11f0-a6e8-0a0027000013"
+}
+###
