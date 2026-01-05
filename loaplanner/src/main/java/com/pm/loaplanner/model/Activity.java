@@ -29,4 +29,7 @@ public class Activity {
 
     @Column(name = "max_entries")
     private int maxEntries;
+
+    @Column(name = "min_ilvl")
+    private int minIlvl;
 }
