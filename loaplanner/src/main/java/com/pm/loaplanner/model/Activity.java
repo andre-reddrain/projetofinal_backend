@@ -21,8 +21,9 @@ public class Activity {
     @Column(name = "name")
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
-    private String type;
+    private ActivityType type;
 
     @Column(name = "reset_type")
     private String resetType;
