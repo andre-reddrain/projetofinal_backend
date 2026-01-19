@@ -28,7 +28,7 @@ public class GateDetails {
     @JoinColumn(name = "gate_id", referencedColumnName = "id")
     private Gate gate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "difficulty_id", referencedColumnName = "id")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "difficulty")
     private Difficulty difficulty;
 }
