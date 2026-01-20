@@ -11,14 +11,14 @@ import java.util.UUID;
 
 @Service
 public class GateDetailsService {
-    private GateDetailsRepository repository;
+    private final GateDetailsRepository repository;
 
     public GateDetailsService(GateDetailsRepository repository) {
         this.repository = repository;
     }
 
-    public List<GateDetailsResponseDTO> getGateDetailsByGateId(UUID id) {
-        List<GateDetails> gateDetails = repository.findByGateId(id);
+    public List<GateDetailsResponseDTO> getGateDetailsByGateIds(List<UUID> gateIds) {
+        List<GateDetails> gateDetails = repository.findByGateIdIn(gateIds);
         List<GateDetailsResponseDTO> gateDetailsResponseDTOS =
                 gateDetails.stream().map(GateDetailsMapper::toDTO).toList();
 

@@ -18,10 +18,11 @@ public class GateDetailsController {
         this.gateDetailsService = gateDetailsService;
     }
 
-    @GetMapping("/{id}")
+//    @GetMapping("/{id}")
+    @GetMapping
     @Operation(summary = "Get all Gate Details of a Gate")
-    public ResponseEntity<List<GateDetailsResponseDTO>> getGateDetailsByGateId(@PathVariable UUID id) {
-        List<GateDetailsResponseDTO> gateDetails = gateDetailsService.getGateDetailsByGateId(id);
+    public ResponseEntity<List<GateDetailsResponseDTO>> getGateDetailsByGateId(@RequestParam List<UUID> gateIds) {
+        List<GateDetailsResponseDTO> gateDetails = gateDetailsService.getGateDetailsByGateIds(gateIds);
         return ResponseEntity.ok().body(gateDetails);
     }
 }
