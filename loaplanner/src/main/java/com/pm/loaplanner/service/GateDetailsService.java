@@ -24,4 +24,12 @@ public class GateDetailsService {
 
         return gateDetailsResponseDTOS;
     }
+
+    public List<GateDetailsResponseDTO> getAllGateDetails() {
+        List<GateDetails> gateDetails = repository.findAll();
+        List<GateDetailsResponseDTO> gateDetailsResponseDTOS =
+                gateDetails.stream().map(GateDetailsMapper::toDTO).toList();
+
+        return gateDetailsResponseDTOS;
+    }
 }

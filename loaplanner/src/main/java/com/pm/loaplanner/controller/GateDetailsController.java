@@ -25,4 +25,11 @@ public class GateDetailsController {
         List<GateDetailsResponseDTO> gateDetails = gateDetailsService.getGateDetailsByGateIds(gateIds);
         return ResponseEntity.ok().body(gateDetails);
     }
+
+    @GetMapping("/all")
+    @Operation(summary = "Get all Gate Details")
+    public ResponseEntity<List<GateDetailsResponseDTO>> getAllGateDetails() {
+        List<GateDetailsResponseDTO> gateDetails = gateDetailsService.getAllGateDetails();
+        return ResponseEntity.ok().body(gateDetails);
+    }
 }

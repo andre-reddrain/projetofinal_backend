@@ -15,6 +15,7 @@ public class GateDetailsMapper {
         dto.setEntryLvl(gateDetails.getEntryLvl());
         dto.setExtralootCost(gateDetails.getExtralootCost());
         dto.setDifficulty(gateDetails.getDifficulty().toString());
+        dto.setGateName(gateDetails.getGate().getName());
         return dto;
     }
 }

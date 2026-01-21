@@ -10,4 +10,5 @@ public class GateDetailsResponseDTO {
     private int entryLvl;
     private int extralootCost;
     private String difficulty;
+    private String gateName;
 }
