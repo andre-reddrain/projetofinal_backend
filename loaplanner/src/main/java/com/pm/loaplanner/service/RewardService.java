@@ -15,6 +15,9 @@ import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
 @Service
 public class RewardService {
     private final RewardRepository rewardRepository;
@@ -30,6 +33,14 @@ public class RewardService {
         this.typeRewardsRepository = typeRewardsRepository;
     }
 
+    public List<RewardResponseDTO> getRewardsFromGateDetails(List<UUID> gateDetailsIds) {
+        List<Reward> rewards = rewardRepository.findByGateDetailsIdIn(gateDetailsIds);
+        List<RewardResponseDTO> rewardResponseDTOS =
+                rewards.stream().map(RewardMapper::toGateDetailsDTO).toList();
+
+        return rewardResponseDTOS;
+    }
+
     public RewardResponseDTO createReward(RewardRequestDTO rewardRequestDTO) {
         try {
             Reward newReward = RewardMapper.toModel(rewardRequestDTO);
@@ -43,7 +54,7 @@ public class RewardService {
             newReward.setTypeRewards(typeReward);
 
             Reward savedReward = rewardRepository.save(newReward);
-            return RewardMapper.toDTO(savedReward);
+            return RewardMapper.toFullDTO(savedReward);
         } catch (DataIntegrityViolationException | InvalidDataAccessApiUsageException ex) {
             System.out.println(ex.getMessage());
             throw new ApiException(HttpStatus.BAD_REQUEST, "Null fields are not allowed");

@@ -6,9 +6,10 @@ import com.pm.loaplanner.service.RewardService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class RewardController {
@@ -18,8 +19,15 @@ public class RewardController {
         this.rewardService = rewardService;
     }
 
-    @Operation(summary = "Create a new Reward")
+    @GetMapping("/api/rewards")
+    @Operation(summary = "Get all Rewards from multiple Gate Details")
+    public ResponseEntity<List<RewardResponseDTO>> getRewardsByGateDetailsId(@RequestParam List<UUID> gateDetailsIds) {
+        List<RewardResponseDTO> rewards = rewardService.getRewardsFromGateDetails(gateDetailsIds);
+        return ResponseEntity.ok().body(rewards);
+    }
+
     @PostMapping("/api/reward")
+    @Operation(summary = "Create a new Reward")
     public ResponseEntity<RewardResponseDTO> createReward(@RequestBody RewardRequestDTO rewardRequestDTO) {
         RewardResponseDTO createdReward = rewardService.createReward(rewardRequestDTO);
 
