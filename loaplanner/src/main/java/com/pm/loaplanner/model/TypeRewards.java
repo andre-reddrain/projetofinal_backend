@@ -22,7 +22,7 @@ public class TypeRewards {
     private String name;
 
     @Column(name = "tier")
-    private int tier;
+    private Integer tier;
 
     @Column(name = "class_type")
     private String classType;
