@@ -10,11 +10,13 @@ import com.pm.loaplanner.model.TypeRewards;
 import com.pm.loaplanner.repository.GateDetailsRepository;
 import com.pm.loaplanner.repository.RewardRepository;
 import com.pm.loaplanner.repository.TypeRewardsRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -59,5 +61,28 @@ public class RewardService {
             System.out.println(ex.getMessage());
             throw new ApiException(HttpStatus.BAD_REQUEST, "Null fields are not allowed");
         }
+    }
+
+    @Transactional
+    public List<RewardResponseDTO> createRewards(List<RewardRequestDTO> rewardDTOs) {
+        List<Reward> rewards = new ArrayList<>();
+
+        for (RewardRequestDTO dto : rewardDTOs) {
+            Reward newReward = RewardMapper.toModel(dto);
+
+            // Link FK GateDetails
+            GateDetails gateDetails = gateDetailsRepository.findById(dto.getGateDetailsId()).get();
+            newReward.setGateDetails(gateDetails);
+
+            // Link FK TypeRewards
+            TypeRewards typeReward = typeRewardsRepository.findById(dto.getTypeRewardId()).get();
+            newReward.setTypeRewards(typeReward);
+
+            rewards.add(newReward);
+        }
+
+        List<Reward> savedRewards = rewardRepository.saveAll(rewards);
+
+        return savedRewards.stream().map(RewardMapper::toFullDTO).toList();
     }
 }

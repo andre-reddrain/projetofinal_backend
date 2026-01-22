@@ -26,6 +26,7 @@ public class GateDetails {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gate_id", referencedColumnName = "id")
+    @ToString.Exclude
     private Gate gate;
 
     @Enumerated(EnumType.STRING)

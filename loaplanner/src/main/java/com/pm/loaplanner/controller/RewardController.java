@@ -33,4 +33,12 @@ public class RewardController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(createdReward);
     }
+
+    @PostMapping("/api/rewards/bulk")
+    @Operation(summary = "Creates new Rewards (Bulk Insert)")
+    public ResponseEntity<List<RewardResponseDTO>> createRewardBulk(@RequestBody List<RewardRequestDTO> rewardDTOs) {
+        List<RewardResponseDTO> createdRewards = rewardService.createRewards(rewardDTOs);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdRewards);
+    }
 }
