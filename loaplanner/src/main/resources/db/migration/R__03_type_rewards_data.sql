@@ -17,7 +17,7 @@ INSERT INTO type_rewards(id, name, tier, class_type, grade, icon) VALUES
 
 -- Tier 3 Gear
 (UUID_TO_BIN('ddea7819-dd37-11f0-a6e8-0a0027000013'),'Accessory',3,'Accessory','Relic','assets/type_rewards/gear/t3/relic_accessory.png'),
-(UUID_TO_BIN('ddea7bb7-dd37-11f0-a6e8-0a0027000013'),'Bracelet',3,'Bracelet','Relic','assets/type_rewards/gear/t3/relic_accessory.png'),
+(UUID_TO_BIN('ddea7bb7-dd37-11f0-a6e8-0a0027000013'),'Bracelet',3,'Bracelet','Relic','assets/type_rewards/gear/t3/relic_bracelet.png'),
 (UUID_TO_BIN('ddea7ccc-dd37-11f0-a6e8-0a0027000013'),'Ability Stone',3,'Ability Stone','Relic','assets/type_rewards/gear/t3/relic_ability_stone.png'),
 (UUID_TO_BIN('ddea7d7c-dd37-11f0-a6e8-0a0027000013'),'Accessory',3,'Accessory','Ancient','assets/type_rewards/gear/t3/ancient_accessory.png'),
 (UUID_TO_BIN('ddea7e25-dd37-11f0-a6e8-0a0027000013'),'Bracelet',3,'Bracelet','Ancient','assets/type_rewards/gear/t3/ancient_bracelet.png'),
