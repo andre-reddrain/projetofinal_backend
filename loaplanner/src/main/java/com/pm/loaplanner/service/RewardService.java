@@ -85,4 +85,8 @@ public class RewardService {
 
         return savedRewards.stream().map(RewardMapper::toFullDTO).toList();
     }
+
+    public void deleteReward(UUID id) {
+        rewardRepository.deleteById(id);
+    }
 }

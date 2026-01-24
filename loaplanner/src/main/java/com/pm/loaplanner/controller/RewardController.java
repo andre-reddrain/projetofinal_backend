@@ -41,4 +41,11 @@ public class RewardController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(createdRewards);
     }
+
+    @DeleteMapping("/api/reward/{id}")
+    @Operation(summary = "Deletes a Reward")
+    public ResponseEntity<Void> deleteReward(@PathVariable UUID id) {
+        rewardService.deleteReward(id);
+        return ResponseEntity.noContent().build();
+    }
 }

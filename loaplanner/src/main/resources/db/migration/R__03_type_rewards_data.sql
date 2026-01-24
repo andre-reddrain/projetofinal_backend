@@ -27,7 +27,7 @@ INSERT INTO type_rewards(id, name, tier, class_type, grade, icon) VALUES
 (UUID_TO_BIN('ddea7f7e-dd37-11f0-a6e8-0a0027000013'),'Covetous Wing',3,'Raid Drop','Relic','assets/type_rewards/raid/t3/covetous_wing.png'),
 (UUID_TO_BIN('ddea8025-dd37-11f0-a6e8-0a0027000013'),'Mayhem Horn',3,'Raid Drop','Relic','assets/type_rewards/raid/t3/mayhem_horn.png'),
 (UUID_TO_BIN('ddea80d7-dd37-11f0-a6e8-0a0027000013'),'Phantom Intention',3,'Raid Drop','Ancient','assets/type_rewards/raid/t3/phantom_intention.png'),
-(UUID_TO_BIN('ddea817e-dd37-11f0-a6e8-0a0027000013'),'Light''s Trial',3,'Raid Drop','Relic','assets/type_rewards/raid/t3/lights_trial.png'),
+(UUID_TO_BIN('ddea817e-dd37-11f0-a6e8-0a0027000013'),'Light''s Trial',3,'Raid Drop','Epic','assets/type_rewards/raid/t3/lights_trial.png'),
 (UUID_TO_BIN('ddea8227-dd37-11f0-a6e8-0a0027000013'),'Empyrean Of Contemplation',3,'Raid Drop','Ancient','assets/type_rewards/raid/t3/empyrean_of_contemplation.png'),
 (UUID_TO_BIN('ddea830b-dd37-11f0-a6e8-0a0027000013'),'Book of Judgment',3,'Raid Drop','Ancient','assets/type_rewards/raid/t3/book_of_judgment.png'),
 (UUID_TO_BIN('ddea83b1-dd37-11f0-a6e8-0a0027000013'),'Eye of Decay',3,'Raid Drop','Ancient','assets/type_rewards/raid/t3/eye_of_decay.png'),
@@ -42,7 +42,7 @@ INSERT INTO type_rewards(id, name, tier, class_type, grade, icon) VALUES
 -- Tier 4 Honing Material
 (UUID_TO_BIN('ddea891b-dd37-11f0-a6e8-0a0027000013'),'Destiny Destruction Stone',4,'Honing Material','Normal','assets/type_rewards/honing/t4/destiny_destruction_stone.png'),
 (UUID_TO_BIN('ddea89c5-dd37-11f0-a6e8-0a0027000013'),'Destiny Guardian Stone',4,'Honing Material','Normal','assets/type_rewards/honing/t4/destiny_guardian_stone.png'),
-(UUID_TO_BIN('ddea8a6e-dd37-11f0-a6e8-0a0027000013'),'Destiny Leapstone',4,'Honing Material','Rare','assets/type_rewards/honing/t4/destiny_guardian_stone.png'),
+(UUID_TO_BIN('ddea8a6e-dd37-11f0-a6e8-0a0027000013'),'Destiny Leapstone',4,'Honing Material','Rare','assets/type_rewards/honing/t4/destiny_leapstone.png'),
 (UUID_TO_BIN('ddea8b10-dd37-11f0-a6e8-0a0027000013'),'Destiny Shard',4,'Honing Material','Normal','assets/type_rewards/honing/t4/destiny_shard.png'),
 (UUID_TO_BIN('ddea8bb6-dd37-11f0-a6e8-0a0027000013'),'Destiny Stone',4,'Honing Material','Relic','assets/type_rewards/honing/t4/destiny_stone.png'),
 (UUID_TO_BIN('ddea8c63-dd37-11f0-a6e8-0a0027000013'),'Special Honing: Circulated Leapstone',4,'Honing Material','Relic','assets/type_rewards/honing/t4/special_honing_circulated_leapstone.png'),
