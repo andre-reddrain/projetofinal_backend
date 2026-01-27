@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 @Service
 public class UserService {
@@ -28,17 +29,28 @@ public class UserService {
 
     public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
         // Verificação de email
+        String emailRegex = "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$";
+        if (!Pattern.matches(emailRegex, userRequestDTO.getEmail())) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Email must be valid!");
+        }
+
         if (userRepository.existsByEmail(userRequestDTO.getEmail())) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "Email address already in use");
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Email address already in use!");
         }
 
         // Verificações Password
-        if (userRequestDTO.getPassword().length() < 8) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "Password must be at least 8 characters");
+        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*]).{8,}$";
+        if (!Pattern.matches(passwordRegex, userRequestDTO.getPassword())) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Password must contain 8 characters, including an uppercase letter, a lowercase letter, a number, and a special character!");
         }
 
         if (!userRequestDTO.getPassword().equals(userRequestDTO.getConfirmPassword())) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "Passwords do not match");
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Passwords do not match!");
+        }
+
+        // Verificações Username
+        if (userRequestDTO.getUsername().length() < 3) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Username must be at least 3 characters long!");
         }
 
         User newUser = UserMapper.toModel(userRequestDTO);
