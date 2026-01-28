@@ -13,6 +13,7 @@ public class CharacterMapper {
         charDTO.setIlvl(charac.getIlvl());
         charDTO.setChaosRestCounter(charac.getChaosRestCounter());
         charDTO.setGuardianRestCounter(charac.getGuardianRestCounter());
+        charDTO.setCharacterClassId(charac.getCharClass().getId().toString());
         return charDTO;
     }
 

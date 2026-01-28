@@ -12,4 +12,5 @@ public class CharacterResponseDTO {
     private Double ilvl;
     private Integer chaosRestCounter;
     private Integer guardianRestCounter;
+    private String characterClassId;
 }
