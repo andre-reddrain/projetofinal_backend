@@ -9,6 +9,10 @@ public class CharacterMapper {
         CharacterResponseDTO charDTO = new CharacterResponseDTO();
         charDTO.setId(charac.getId().toString());
         charDTO.setName(charac.getName());
+        charDTO.setDescription(charac.getDescription());
+        charDTO.setIlvl(charac.getIlvl());
+        charDTO.setChaosRestCounter(charac.getChaosRestCounter());
+        charDTO.setGuardianRestCounter(charac.getGuardianRestCounter());
         return charDTO;
     }
 

@@ -14,6 +14,9 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
 @Service
 public class CharacterService {
     private final CharacterRepository characterRepository;
@@ -29,7 +32,7 @@ public class CharacterService {
         this.characterClassesRepository = characterClassesRepository;
     }
 
-    public CharacterResponseDTO createCharacter(CharacterRequestDTO characterRequestDTO) {
+    public void createCharacter(CharacterRequestDTO characterRequestDTO) {
         try {
             Character newCharacter = CharacterMapper.toModel(characterRequestDTO);
 
@@ -45,10 +48,17 @@ public class CharacterService {
             newCharacter.setChaosRestCounter(0);
             newCharacter.setGuardianRestCounter(0);
 
-            Character savedCharacter = characterRepository.save(newCharacter);
-            return CharacterMapper.toDTO(savedCharacter);
+            characterRepository.save(newCharacter);
         } catch (DataIntegrityViolationException dataException) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Null fields are not allowed");
         }
+    }
+
+    public List<CharacterResponseDTO> getCharactersOfUser(UUID userId) {
+        List<Character> characters = characterRepository.findByUserId(userId);
+        List<CharacterResponseDTO> characterResponseDTOS =
+                characters.stream().map(CharacterMapper::toDTO).toList();
+
+        return characterResponseDTOS;
     }
 }

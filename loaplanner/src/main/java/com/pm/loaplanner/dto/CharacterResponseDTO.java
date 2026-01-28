@@ -8,4 +8,8 @@ import lombok.Setter;
 public class CharacterResponseDTO {
     private String id;
     private String name;
+    private String description;
+    private Double ilvl;
+    private Integer chaosRestCounter;
+    private Integer guardianRestCounter;
 }
