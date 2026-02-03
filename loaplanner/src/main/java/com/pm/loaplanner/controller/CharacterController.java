@@ -3,17 +3,16 @@ package com.pm.loaplanner.controller;
 import com.pm.loaplanner.config.CustomUserDetails;
 import com.pm.loaplanner.dto.CharacterRequestDTO;
 import com.pm.loaplanner.dto.CharacterResponseDTO;
+import com.pm.loaplanner.dto.CharacterUpdateRequestDTO;
 import com.pm.loaplanner.service.CharacterService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class CharacterController {
@@ -36,5 +35,19 @@ public class CharacterController {
     public ResponseEntity<List<CharacterResponseDTO>> getCharactersOfUser(@AuthenticationPrincipal CustomUserDetails user) {
         List<CharacterResponseDTO> characters = characterService.getCharactersOfUser(user.getId());
         return ResponseEntity.ok().body(characters);
+    }
+
+    @Operation(summary = "Updates a character")
+    @PutMapping("/api/character/{id}")
+    public ResponseEntity<CharacterResponseDTO> updateCharacter(@PathVariable UUID id, @RequestBody CharacterUpdateRequestDTO characterRequestDTO) {
+        CharacterResponseDTO updatedCharacter = characterService.updateCharacter(id, characterRequestDTO);
+        return ResponseEntity.ok().body(updatedCharacter);
+    }
+
+    @Operation(summary = "Deletes a character")
+    @DeleteMapping("/api/character/{id}")
+    public ResponseEntity<Void> deleteCharacter(@PathVariable UUID id) {
+//        characterService.deleteCharacter(id);
+        return ResponseEntity.noContent().build();
     }
 }

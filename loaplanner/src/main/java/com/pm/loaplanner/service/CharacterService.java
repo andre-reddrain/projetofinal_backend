@@ -2,6 +2,7 @@ package com.pm.loaplanner.service;
 
 import com.pm.loaplanner.dto.CharacterRequestDTO;
 import com.pm.loaplanner.dto.CharacterResponseDTO;
+import com.pm.loaplanner.dto.CharacterUpdateRequestDTO;
 import com.pm.loaplanner.exception.ApiException;
 import com.pm.loaplanner.mapper.CharacterMapper;
 import com.pm.loaplanner.model.Character;
@@ -60,5 +61,26 @@ public class CharacterService {
                 characters.stream().map(CharacterMapper::toDTO).toList();
 
         return characterResponseDTOS;
+    }
+
+    public CharacterResponseDTO updateCharacter(UUID id, CharacterUpdateRequestDTO requestDTO) {
+        Character character = characterRepository.findById(id).orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Character not found"));
+
+        character.setName(requestDTO.getName());
+        character.setDescription(requestDTO.getDescription());
+        character.setIlvl(requestDTO.getIlvl());
+        character.setChaosRestCounter(requestDTO.getChaosRestCounter());
+        character.setGuardianRestCounter(requestDTO.getGuardianRestCounter());
+
+        // Link FKs
+        CharacterClasses charClass = characterClassesRepository.findById(requestDTO.getClassId()).get();
+        character.setCharClass(charClass);
+
+        Character updatedCharacter = characterRepository.save(character);
+        return CharacterMapper.toDTO(updatedCharacter);
+    }
+
+    public void deleteCharacter(UUID id) {
+        characterRepository.deleteById(id);
     }
 }
