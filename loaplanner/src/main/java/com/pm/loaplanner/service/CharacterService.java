@@ -33,12 +33,12 @@ public class CharacterService {
         this.characterClassesRepository = characterClassesRepository;
     }
 
-    public void createCharacter(CharacterRequestDTO characterRequestDTO) {
+    public CharacterResponseDTO createCharacter(UUID userId, CharacterRequestDTO characterRequestDTO) {
         try {
             Character newCharacter = CharacterMapper.toModel(characterRequestDTO);
 
             // Link Foreign Key UserId
-            User user = userRepository.findById(characterRequestDTO.getUserId()).get();
+            User user = userRepository.findById(userId).get();
             newCharacter.setUser(user);
 
             // Link Foreign Key ClassId
@@ -49,7 +49,8 @@ public class CharacterService {
             newCharacter.setChaosRestCounter(0);
             newCharacter.setGuardianRestCounter(0);
 
-            characterRepository.save(newCharacter);
+            Character createdCharacter = characterRepository.save(newCharacter);
+            return CharacterMapper.toDTO(createdCharacter);
         } catch (DataIntegrityViolationException dataException) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Null fields are not allowed");
         }

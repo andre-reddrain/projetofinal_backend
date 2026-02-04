@@ -24,10 +24,12 @@ public class CharacterController {
 
     @Operation(summary = "Create a new Character")
     @PostMapping("/api/character")
-    public ResponseEntity<Void> createCharacter(@RequestBody CharacterRequestDTO characterRequestDTO) {
-        characterService.createCharacter(characterRequestDTO);
+    public ResponseEntity<CharacterResponseDTO> createCharacter(
+            @AuthenticationPrincipal CustomUserDetails user,
+            @RequestBody CharacterRequestDTO characterRequestDTO) {
+        CharacterResponseDTO newChar = characterService.createCharacter(user.getId(), characterRequestDTO);
 
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(newChar);
     }
 
     @Operation(summary = "Get all characters from a user")
@@ -47,7 +49,7 @@ public class CharacterController {
     @Operation(summary = "Deletes a character")
     @DeleteMapping("/api/character/{id}")
     public ResponseEntity<Void> deleteCharacter(@PathVariable UUID id) {
-//        characterService.deleteCharacter(id);
+        characterService.deleteCharacter(id);
         return ResponseEntity.noContent().build();
     }
 }
