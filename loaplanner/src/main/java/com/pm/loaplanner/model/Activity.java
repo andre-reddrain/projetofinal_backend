@@ -33,4 +33,7 @@ public class Activity {
 
     @Column(name = "min_ilvl")
     private int minIlvl;
+
+    @Column(name = "icon")
+    private String icon;
 }

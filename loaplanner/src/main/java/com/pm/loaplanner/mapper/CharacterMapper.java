@@ -14,6 +14,7 @@ public class CharacterMapper {
         charDTO.setChaosRestCounter(charac.getChaosRestCounter());
         charDTO.setGuardianRestCounter(charac.getGuardianRestCounter());
         charDTO.setCharacterClassId(charac.getCharClass().getId().toString());
+        charDTO.setCharacterClassIcon(charac.getCharClass().getIcon());
         return charDTO;
     }
 

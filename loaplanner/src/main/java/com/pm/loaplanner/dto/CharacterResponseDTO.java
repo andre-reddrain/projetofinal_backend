@@ -13,4 +13,5 @@ public class CharacterResponseDTO {
     private Integer chaosRestCounter;
     private Integer guardianRestCounter;
     private String characterClassId;
+    private String characterClassIcon;
 }
