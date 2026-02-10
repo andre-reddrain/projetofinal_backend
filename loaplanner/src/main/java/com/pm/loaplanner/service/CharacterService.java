@@ -64,7 +64,7 @@ public class CharacterService {
     }
 
     public List<CharacterResponseDTO> getCharactersOfUser(UUID userId) {
-        List<Character> characters = characterRepository.findByUserId(userId);
+        List<Character> characters = characterRepository.findByUserIdOrderByIlvlDesc(userId);
         List<CharacterResponseDTO> characterResponseDTOS =
                 characters.stream().map(CharacterMapper::toDTO).toList();
 
