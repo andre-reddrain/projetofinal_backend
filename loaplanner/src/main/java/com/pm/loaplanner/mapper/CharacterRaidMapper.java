@@ -8,7 +8,8 @@ public class CharacterRaidMapper {
     public static CharacterRaidResponseDTO toDTO(CharacterRaid characterRaid) {
         CharacterRaidResponseDTO dto = new CharacterRaidResponseDTO();
         dto.setId(characterRaid.getId().toString());
-        dto.setRaidName(characterRaid.getRaid().getName());
+        dto.setCharacterId(characterRaid.getCharacter().getId().toString());
+        dto.setRaidId(characterRaid.getRaid().getId().toString());
         dto.setTracked(characterRaid.isTracked());
         return dto;
     }

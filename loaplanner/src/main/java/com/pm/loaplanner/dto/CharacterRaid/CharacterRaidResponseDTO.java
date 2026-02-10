@@ -7,7 +7,8 @@ import lombok.Setter;
 @Setter
 public class CharacterRaidResponseDTO {
     private String id;
-    private String raidName;
+    private String characterId;
+    private String raidId;
 
     private boolean isTracked;
 }

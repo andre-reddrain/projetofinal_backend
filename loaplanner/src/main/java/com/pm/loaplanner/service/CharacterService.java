@@ -5,12 +5,9 @@ import com.pm.loaplanner.dto.CharacterResponseDTO;
 import com.pm.loaplanner.dto.CharacterUpdateRequestDTO;
 import com.pm.loaplanner.exception.ApiException;
 import com.pm.loaplanner.mapper.CharacterMapper;
+import com.pm.loaplanner.model.*;
 import com.pm.loaplanner.model.Character;
-import com.pm.loaplanner.model.CharacterClasses;
-import com.pm.loaplanner.model.User;
-import com.pm.loaplanner.repository.CharacterClassesRepository;
-import com.pm.loaplanner.repository.CharacterRepository;
-import com.pm.loaplanner.repository.UserRepository;
+import com.pm.loaplanner.repository.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,14 +20,20 @@ public class CharacterService {
     private final CharacterRepository characterRepository;
     private final UserRepository userRepository;
     private final CharacterClassesRepository characterClassesRepository;
+    private final RaidRepository raidRepository;
+    private final CharacterRaidRepository characterRaidRepository;
 
     public CharacterService(
             CharacterRepository characterRepository,
             UserRepository userRepository,
-            CharacterClassesRepository characterClassesRepository) {
+            CharacterClassesRepository characterClassesRepository,
+            RaidRepository raidRepository,
+            CharacterRaidRepository characterRaidRepository) {
         this.characterRepository = characterRepository;
         this.userRepository = userRepository;
         this.characterClassesRepository = characterClassesRepository;
+        this.raidRepository = raidRepository;
+        this.characterRaidRepository = characterRaidRepository;
     }
 
     public CharacterResponseDTO createCharacter(UUID userId, CharacterRequestDTO characterRequestDTO) {
@@ -50,6 +53,10 @@ public class CharacterService {
             newCharacter.setGuardianRestCounter(0);
 
             Character createdCharacter = characterRepository.save(newCharacter);
+
+            // Initialize CharacterRaids
+            initializeCharacterRaids(createdCharacter);
+
             return CharacterMapper.toDTO(createdCharacter);
         } catch (DataIntegrityViolationException dataException) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Null fields are not allowed");
@@ -83,5 +90,20 @@ public class CharacterService {
 
     public void deleteCharacter(UUID id) {
         characterRepository.deleteById(id);
+    }
+
+    private void initializeCharacterRaids(Character character) {
+        List<Raid> raids = raidRepository.findAll();
+
+        List<CharacterRaid> characterRaids = raids.stream()
+                .map(raid -> {
+                    CharacterRaid cr = new CharacterRaid();
+                    cr.setCharacter(character);
+                    cr.setRaid(raid);
+                    return cr;
+                })
+                .toList();
+
+        characterRaidRepository.saveAll(characterRaids);
     }
 }
