@@ -1,7 +1,9 @@
 package com.pm.loaplanner.controller;
 
-import com.pm.loaplanner.dto.RaidDTO;
+import com.pm.loaplanner.dto.Raid.RaidDTO;
+import com.pm.loaplanner.dto.Raid.RaidWithGatesDTO;
 import com.pm.loaplanner.service.RaidService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +20,17 @@ public class RaidController {
         this.raidService = raidService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
+    @Operation(summary = "Get all raids")
     public ResponseEntity<List<RaidDTO>> getAllRaids() {
         List<RaidDTO> raids = raidService.getAllRaids();
+        return ResponseEntity.ok().body(raids);
+    }
+
+    @GetMapping("/gates")
+    @Operation(summary = "Get all raids with gates")
+    public ResponseEntity<List<RaidWithGatesDTO>> getAllRaidsWithGates() {
+        List<RaidWithGatesDTO> raids = raidService.getAllRaidsWithGates();
         return ResponseEntity.ok().body(raids);
     }
 }

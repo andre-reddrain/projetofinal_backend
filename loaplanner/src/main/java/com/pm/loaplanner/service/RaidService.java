@@ -1,6 +1,7 @@
 package com.pm.loaplanner.service;
 
-import com.pm.loaplanner.dto.RaidDTO;
+import com.pm.loaplanner.dto.Raid.RaidDTO;
+import com.pm.loaplanner.dto.Raid.RaidWithGatesDTO;
 import com.pm.loaplanner.mapper.RaidMapper;
 import com.pm.loaplanner.model.Raid;
 import com.pm.loaplanner.repository.RaidRepository;
@@ -19,8 +20,17 @@ public class RaidService {
     }
 
     @Transactional(readOnly = true)
-    public List<RaidDTO> getAllRaids() {
+    public List<RaidWithGatesDTO> getAllRaidsWithGates() {
         List<Raid> raids = raidRepository.findRaidsWithGates();
+        List<RaidWithGatesDTO> raidDTOS =
+            raids.stream().map(RaidMapper::toGatesDTO).toList();
+
+        return raidDTOS;
+    }
+
+    @Transactional(readOnly = true)
+    public List<RaidDTO> getAllRaids() {
+        List<Raid> raids = raidRepository.findAll();
         List<RaidDTO> raidDTOS =
             raids.stream().map(RaidMapper::toDTO).toList();
 
