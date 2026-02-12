@@ -1,6 +1,6 @@
 package com.pm.loaplanner.service;
 
-import com.pm.loaplanner.dto.GateDetailsResponseDTO;
+import com.pm.loaplanner.dto.GateDetails.GateDetailsResponseDTO;
 import com.pm.loaplanner.mapper.GateDetailsMapper;
 import com.pm.loaplanner.model.GateDetails;
 import com.pm.loaplanner.repository.GateDetailsRepository;

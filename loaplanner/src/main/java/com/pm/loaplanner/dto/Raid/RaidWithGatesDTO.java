@@ -1,6 +1,6 @@
 package com.pm.loaplanner.dto.Raid;
 
-import com.pm.loaplanner.dto.GateDTO;
+import com.pm.loaplanner.dto.Gate.GateDTO;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,7 +1,7 @@
 package com.pm.loaplanner.mapper;
 
-import com.pm.loaplanner.dto.UserRequestDTO;
-import com.pm.loaplanner.dto.UserResponseDTO;
+import com.pm.loaplanner.dto.User.UserRequestDTO;
+import com.pm.loaplanner.dto.User.UserResponseDTO;
 import com.pm.loaplanner.model.User;
 
 public class UserMapper {

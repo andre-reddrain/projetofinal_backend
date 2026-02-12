@@ -1,4 +1,4 @@
-package com.pm.loaplanner.dto;
+package com.pm.loaplanner.dto.CharacterActivityProgress;
 
 import lombok.Getter;
 import lombok.Setter;

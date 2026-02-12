@@ -1,6 +1,6 @@
 package com.pm.loaplanner.controller;
 
-import com.pm.loaplanner.dto.GateDetailsResponseDTO;
+import com.pm.loaplanner.dto.GateDetails.GateDetailsResponseDTO;
 import com.pm.loaplanner.service.GateDetailsService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;

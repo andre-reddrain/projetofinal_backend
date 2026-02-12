@@ -1,4 +1,4 @@
-package com.pm.loaplanner.dto;
+package com.pm.loaplanner.dto.Character;
 
 import lombok.Getter;
 import lombok.Setter;

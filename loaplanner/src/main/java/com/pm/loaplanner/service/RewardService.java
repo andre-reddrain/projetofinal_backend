@@ -1,7 +1,7 @@
 package com.pm.loaplanner.service;
 
-import com.pm.loaplanner.dto.RewardRequestDTO;
-import com.pm.loaplanner.dto.RewardResponseDTO;
+import com.pm.loaplanner.dto.Rewards.RewardRequestDTO;
+import com.pm.loaplanner.dto.Rewards.RewardResponseDTO;
 import com.pm.loaplanner.exception.ApiException;
 import com.pm.loaplanner.mapper.RewardMapper;
 import com.pm.loaplanner.model.GateDetails;

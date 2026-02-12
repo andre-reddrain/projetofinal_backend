@@ -1,6 +1,6 @@
 package com.pm.loaplanner.service;
 
-import com.pm.loaplanner.dto.CharacterClassesDTO;
+import com.pm.loaplanner.dto.Character.CharacterClassesDTO;
 import com.pm.loaplanner.mapper.CharacterClassesMapper;
 import com.pm.loaplanner.model.CharacterClasses;
 import com.pm.loaplanner.repository.CharacterClassesRepository;

@@ -1,7 +1,7 @@
 package com.pm.loaplanner.controller;
 
-import com.pm.loaplanner.dto.CharacterGateProgressRequestDTO;
-import com.pm.loaplanner.dto.CharacterGateProgressResponseDTO;
+import com.pm.loaplanner.dto.CharacterGateProgress.CharacterGateProgressRequestDTO;
+import com.pm.loaplanner.dto.CharacterGateProgress.CharacterGateProgressResponseDTO;
 import com.pm.loaplanner.service.CharacterGateProgressService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;

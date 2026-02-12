@@ -1,6 +1,6 @@
 package com.pm.loaplanner.controller;
 
-import com.pm.loaplanner.dto.TypeRewardsDTO;
+import com.pm.loaplanner.dto.TypeRewards.TypeRewardsDTO;
 import com.pm.loaplanner.service.TypeRewardsService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;

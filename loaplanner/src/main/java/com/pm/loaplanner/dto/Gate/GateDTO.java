@@ -1,4 +1,4 @@
-package com.pm.loaplanner.dto;
+package com.pm.loaplanner.dto.Gate;
 
 import lombok.Getter;
 import lombok.Setter;

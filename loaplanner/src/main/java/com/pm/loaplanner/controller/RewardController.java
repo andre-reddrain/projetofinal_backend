@@ -1,7 +1,7 @@
 package com.pm.loaplanner.controller;
 
-import com.pm.loaplanner.dto.RewardRequestDTO;
-import com.pm.loaplanner.dto.RewardResponseDTO;
+import com.pm.loaplanner.dto.Rewards.RewardRequestDTO;
+import com.pm.loaplanner.dto.Rewards.RewardResponseDTO;
 import com.pm.loaplanner.service.RewardService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;

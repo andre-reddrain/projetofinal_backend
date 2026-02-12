@@ -1,9 +1,9 @@
 package com.pm.loaplanner.controller;
 
 import com.pm.loaplanner.config.CustomUserDetails;
-import com.pm.loaplanner.dto.CharacterRequestDTO;
-import com.pm.loaplanner.dto.CharacterResponseDTO;
-import com.pm.loaplanner.dto.CharacterUpdateRequestDTO;
+import com.pm.loaplanner.dto.Character.CharacterRequestDTO;
+import com.pm.loaplanner.dto.Character.CharacterResponseDTO;
+import com.pm.loaplanner.dto.Character.CharacterUpdateRequestDTO;
 import com.pm.loaplanner.service.CharacterService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;

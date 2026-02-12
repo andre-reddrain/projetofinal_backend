@@ -1,4 +1,4 @@
-package com.pm.loaplanner.dto;
+package com.pm.loaplanner.dto.CharacterGateProgress;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

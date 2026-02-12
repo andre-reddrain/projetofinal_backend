@@ -1,8 +1,8 @@
 package com.pm.loaplanner.service;
 
-import com.pm.loaplanner.dto.CharacterRequestDTO;
-import com.pm.loaplanner.dto.CharacterResponseDTO;
-import com.pm.loaplanner.dto.CharacterUpdateRequestDTO;
+import com.pm.loaplanner.dto.Character.CharacterRequestDTO;
+import com.pm.loaplanner.dto.Character.CharacterResponseDTO;
+import com.pm.loaplanner.dto.Character.CharacterUpdateRequestDTO;
 import com.pm.loaplanner.exception.ApiException;
 import com.pm.loaplanner.mapper.CharacterMapper;
 import com.pm.loaplanner.model.*;

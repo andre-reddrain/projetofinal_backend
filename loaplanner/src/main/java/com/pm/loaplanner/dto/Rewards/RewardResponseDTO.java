@@ -1,4 +1,4 @@
-package com.pm.loaplanner.dto;
+package com.pm.loaplanner.dto.Rewards;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;

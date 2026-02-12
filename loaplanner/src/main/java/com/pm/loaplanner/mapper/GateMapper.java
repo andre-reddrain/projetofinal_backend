@@ -1,6 +1,6 @@
 package com.pm.loaplanner.mapper;
 
-import com.pm.loaplanner.dto.GateDTO;
+import com.pm.loaplanner.dto.Gate.GateDTO;
 import com.pm.loaplanner.model.Gate;
 
 public class GateMapper {

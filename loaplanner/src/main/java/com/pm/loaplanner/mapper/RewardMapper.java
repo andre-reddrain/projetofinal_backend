@@ -1,7 +1,7 @@
 package com.pm.loaplanner.mapper;
 
-import com.pm.loaplanner.dto.RewardRequestDTO;
-import com.pm.loaplanner.dto.RewardResponseDTO;
+import com.pm.loaplanner.dto.Rewards.RewardRequestDTO;
+import com.pm.loaplanner.dto.Rewards.RewardResponseDTO;
 import com.pm.loaplanner.model.Reward;
 
 public class RewardMapper {

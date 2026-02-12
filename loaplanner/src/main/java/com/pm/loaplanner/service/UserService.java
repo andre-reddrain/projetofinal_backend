@@ -1,7 +1,7 @@
 package com.pm.loaplanner.service;
 
-import com.pm.loaplanner.dto.UserRequestDTO;
-import com.pm.loaplanner.dto.UserResponseDTO;
+import com.pm.loaplanner.dto.User.UserRequestDTO;
+import com.pm.loaplanner.dto.User.UserResponseDTO;
 import com.pm.loaplanner.exception.ApiException;
 import com.pm.loaplanner.mapper.UserMapper;
 import com.pm.loaplanner.model.User;

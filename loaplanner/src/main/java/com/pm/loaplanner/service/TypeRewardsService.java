@@ -1,12 +1,11 @@
 package com.pm.loaplanner.service;
 
-import com.pm.loaplanner.dto.TypeRewardsDTO;
+import com.pm.loaplanner.dto.TypeRewards.TypeRewardsDTO;
 import com.pm.loaplanner.mapper.TypeRewardsMapper;
 import com.pm.loaplanner.model.TypeRewards;
 import com.pm.loaplanner.repository.TypeRewardsRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

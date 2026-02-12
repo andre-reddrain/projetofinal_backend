@@ -1,11 +1,8 @@
 package com.pm.loaplanner.mapper;
 
-import com.pm.loaplanner.dto.CharacterActivityProgressRequestDTO;
-import com.pm.loaplanner.dto.CharacterActivityProgressResponseDTO;
+import com.pm.loaplanner.dto.CharacterActivityProgress.CharacterActivityProgressRequestDTO;
+import com.pm.loaplanner.dto.CharacterActivityProgress.CharacterActivityProgressResponseDTO;
 import com.pm.loaplanner.model.CharacterActivityProgress;
-import jakarta.validation.constraints.NotNull;
-
-import java.util.UUID;
 
 public class CharacterActivityProgressMapper {
     /**

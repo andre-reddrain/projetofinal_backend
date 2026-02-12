@@ -1,7 +1,7 @@
 package com.pm.loaplanner.mapper;
 
-import com.pm.loaplanner.dto.CharacterGateProgressRequestDTO;
-import com.pm.loaplanner.dto.CharacterGateProgressResponseDTO;
+import com.pm.loaplanner.dto.CharacterGateProgress.CharacterGateProgressRequestDTO;
+import com.pm.loaplanner.dto.CharacterGateProgress.CharacterGateProgressResponseDTO;
 import com.pm.loaplanner.model.CharacterGateProgress;
 
 public class CharacterGateProgressMapper {

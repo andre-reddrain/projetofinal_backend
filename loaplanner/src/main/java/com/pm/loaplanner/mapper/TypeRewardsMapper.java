@@ -1,6 +1,6 @@
 package com.pm.loaplanner.mapper;
 
-import com.pm.loaplanner.dto.TypeRewardsDTO;
+import com.pm.loaplanner.dto.TypeRewards.TypeRewardsDTO;
 import com.pm.loaplanner.model.TypeRewards;
 
 public class TypeRewardsMapper {

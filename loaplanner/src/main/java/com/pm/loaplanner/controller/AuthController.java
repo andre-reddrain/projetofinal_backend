@@ -1,10 +1,10 @@
 package com.pm.loaplanner.controller;
 
-import com.pm.loaplanner.dto.LoginRequestDTO;
-import com.pm.loaplanner.dto.LoginResponseDTO;
+import com.pm.loaplanner.dto.Login.LoginRequestDTO;
+import com.pm.loaplanner.dto.Login.LoginResponseDTO;
 
-import com.pm.loaplanner.dto.UserRequestDTO;
-import com.pm.loaplanner.dto.UserResponseDTO;
+import com.pm.loaplanner.dto.User.UserRequestDTO;
+import com.pm.loaplanner.dto.User.UserResponseDTO;
 import com.pm.loaplanner.exception.ApiException;
 import com.pm.loaplanner.service.AuthService;
 import com.pm.loaplanner.service.UserService;

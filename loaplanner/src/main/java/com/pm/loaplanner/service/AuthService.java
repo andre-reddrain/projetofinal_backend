@@ -1,8 +1,7 @@
 package com.pm.loaplanner.service;
 
-import com.pm.loaplanner.dto.LoginRequestDTO;
+import com.pm.loaplanner.dto.Login.LoginRequestDTO;
 import com.pm.loaplanner.util.JwtUtil;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

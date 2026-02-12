@@ -1,6 +1,6 @@
 package com.pm.loaplanner.controller;
 
-import com.pm.loaplanner.dto.CharacterClassesDTO;
+import com.pm.loaplanner.dto.Character.CharacterClassesDTO;
 import com.pm.loaplanner.service.CharacterClassesService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

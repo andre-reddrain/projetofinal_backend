@@ -1,7 +1,7 @@
 package com.pm.loaplanner.service;
 
-import com.pm.loaplanner.dto.CharacterGateProgressRequestDTO;
-import com.pm.loaplanner.dto.CharacterGateProgressResponseDTO;
+import com.pm.loaplanner.dto.CharacterGateProgress.CharacterGateProgressRequestDTO;
+import com.pm.loaplanner.dto.CharacterGateProgress.CharacterGateProgressResponseDTO;
 import com.pm.loaplanner.exception.ApiException;
 import com.pm.loaplanner.mapper.CharacterGateProgressMapper;
 import com.pm.loaplanner.model.*;
