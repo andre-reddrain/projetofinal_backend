@@ -1,10 +1,12 @@
 package com.pm.loaplanner.service;
 
 import com.pm.loaplanner.dto.CharacterRaid.CharacterRaidResponseDTO;
+import com.pm.loaplanner.dto.CharacterRaid.CharacterRaidUpdateRequestDTO;
 import com.pm.loaplanner.mapper.CharacterRaidMapper;
 import com.pm.loaplanner.model.CharacterRaid;
 import com.pm.loaplanner.repository.CharacterRaidRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -23,5 +25,14 @@ public class CharacterRaidService {
                 characterRaids.stream().map(CharacterRaidMapper::toDTO).toList();
 
         return dtos;
+    }
+
+    @Transactional
+    public void bulkUpdateCharacterRaids(List<CharacterRaidUpdateRequestDTO> dtos) {
+        for (CharacterRaidUpdateRequestDTO dto : dtos) {
+            repository.findById(dto.getId()).ifPresent(record -> {
+                record.setTracked(dto.isTracked());
+            });
+        }
     }
 }
