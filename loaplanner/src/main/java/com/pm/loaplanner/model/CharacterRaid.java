@@ -30,5 +30,5 @@ public class CharacterRaid {
     private Raid raid;
 
     @Column(nullable = false)
-    private boolean isTracked = false;
+    private boolean isTracked = true;
 }

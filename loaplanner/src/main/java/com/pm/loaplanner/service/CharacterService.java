@@ -11,6 +11,7 @@ import com.pm.loaplanner.repository.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -88,7 +89,12 @@ public class CharacterService {
         return CharacterMapper.toDTO(updatedCharacter);
     }
 
+    @Transactional
     public void deleteCharacter(UUID id) {
+        // Bulk Delete of CharacterRaids
+        characterRaidRepository.deleteByCharacterId(id);
+
+        // Delete Character
         characterRepository.deleteById(id);
     }
 
