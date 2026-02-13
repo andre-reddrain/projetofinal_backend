@@ -13,4 +13,9 @@ public interface RaidRepository extends JpaRepository<Raid, UUID> {
 
     @Query("SELECT DISTINCT r FROM Raid r LEFT JOIN FETCH r.gates")
     List<Raid> findRaidsWithGates();
+
+    @Query("SELECT DISTINCT r FROM Raid r " +
+            "LEFT JOIN FETCH r.gates g " +
+            "LEFT JOIN FETCH g.gateDetails gd")
+    List<Raid> findAllRaidsForGoldPlanner();
 }
