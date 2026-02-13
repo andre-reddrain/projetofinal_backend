@@ -18,8 +18,8 @@ public class Reward {
     @Column(name = "id")
     private UUID id;
 
-    @Column(name = "ammount", nullable = false)
-    private int ammount;
+    @Column(name = "amount", nullable = false)
+    private int amount;
 
     @Column(name = "is_extra_reward", nullable = false)
     private Boolean isExtraReward;

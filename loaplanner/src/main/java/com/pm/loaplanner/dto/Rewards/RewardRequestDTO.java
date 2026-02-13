@@ -10,8 +10,8 @@ import java.util.UUID;
 @Getter
 @Setter
 public class RewardRequestDTO {
-    @NotNull(message = "Ammount is required")
-    private int ammount;
+    @NotNull(message = "Amount is required")
+    private int amount;
 
     private Boolean isExtraReward;
 

@@ -10,7 +10,7 @@ import lombok.Setter;
 public class RewardResponseDTO {
     private String id;
     private Boolean isExtraReward;
-    private int ammount;
+    private int amount;
     private String typeRewardId;
     private String gateDetailsId;
 }

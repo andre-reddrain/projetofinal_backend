@@ -9,7 +9,7 @@ public class RewardMapper {
         RewardResponseDTO dto = new RewardResponseDTO();
         dto.setId(reward.getId().toString());
         dto.setIsExtraReward(reward.getIsExtraReward());
-        dto.setAmmount(reward.getAmmount());
+        dto.setAmount(reward.getAmount());
         dto.setTypeRewardId(reward.getTypeRewards().getId().toString());
         dto.setGateDetailsId(reward.getGateDetails().getId().toString());
         return dto;
@@ -19,14 +19,14 @@ public class RewardMapper {
         RewardResponseDTO dto = new RewardResponseDTO();
         dto.setId(reward.getId().toString());
         dto.setIsExtraReward(reward.getIsExtraReward());
-        dto.setAmmount(reward.getAmmount());
+        dto.setAmount(reward.getAmount());
         dto.setTypeRewardId(reward.getTypeRewards().getId().toString());
         return dto;
     }
 
     public static Reward toModel(RewardRequestDTO rewardDTO) {
         Reward reward = new Reward();
-        reward.setAmmount(rewardDTO.getAmmount());
+        reward.setAmount(rewardDTO.getAmount());
         reward.setIsExtraReward(rewardDTO.getIsExtraReward());
 
         return reward;
