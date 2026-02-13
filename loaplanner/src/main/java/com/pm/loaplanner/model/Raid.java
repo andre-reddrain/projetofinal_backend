@@ -3,7 +3,7 @@ package com.pm.loaplanner.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
+import java.util.HashSet;
 import java.util.UUID;
 import java.util.Set;
 
@@ -30,5 +30,5 @@ public class Raid {
 
     //OneToMany
     @OneToMany(mappedBy = "raid", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Gate> gates;
+    private Set<Gate> gates =  new HashSet<>();
 }
