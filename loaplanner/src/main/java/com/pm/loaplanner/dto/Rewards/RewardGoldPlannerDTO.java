@@ -9,4 +9,6 @@ public class RewardGoldPlannerDTO {
     private String id;
     private String type;
     private int amount;
+    private String icon;
+    private boolean isExtraReward;
 }

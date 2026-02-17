@@ -82,7 +82,9 @@ public class GoldPlannerMapper {
         return new RewardGoldPlannerDTO(
                 reward.getId().toString(),
                 reward.getTypeRewards().getName(),
-                reward.getAmount()
+                reward.getAmount(),
+                reward.getTypeRewards().getIcon(),
+                reward.getIsExtraReward()
         );
     }
 
