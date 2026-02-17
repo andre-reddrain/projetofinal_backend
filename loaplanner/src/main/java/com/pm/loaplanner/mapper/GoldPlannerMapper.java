@@ -1,6 +1,5 @@
 package com.pm.loaplanner.mapper;
 
-import com.pm.loaplanner.dto.CharacterGateProgress.CharacterGateProgressGoldPlannerDTO;
 import com.pm.loaplanner.dto.Gate.GateGoldPlannerDTO;
 import com.pm.loaplanner.dto.GateDetails.GateDetailsGoldPlannerDTO;
 import com.pm.loaplanner.dto.GoldPlanner.GoldPlannerResponseDTO;
@@ -15,19 +14,17 @@ import java.util.UUID;
 public class GoldPlannerMapper {
     public static GoldPlannerResponseDTO toGoldPlannerResponse(
             List<Raid> raids,
-            Map<UUID, CharacterGateProgress> progressMap,
             Map<UUID, List<Reward>> rewardsMap
     ) {
         return new GoldPlannerResponseDTO(
                 raids.stream()
-                        .map(r -> toRaidDTO(r, progressMap, rewardsMap))
+                        .map(r -> toRaidDTO(r, rewardsMap))
                         .toList()
         );
     }
 
     private static RaidGoldPlannerDTO toRaidDTO(
             Raid raid,
-            Map<UUID, CharacterGateProgress> progressMap,
             Map<UUID, List<Reward>> rewardsMap
     ){
         return new RaidGoldPlannerDTO(
@@ -35,14 +32,13 @@ public class GoldPlannerMapper {
                 raid.getName(),
                 raid.getType(),
                 raid.getGates().stream()
-                        .map(g -> toGateDTO(g, progressMap, rewardsMap))
+                        .map(g -> toGateDTO(g, rewardsMap))
                         .toList()
         );
     }
 
     private static GateGoldPlannerDTO toGateDTO(
             Gate gate,
-            Map<UUID, CharacterGateProgress> progressMap,
             Map<UUID, List<Reward>> rewardsMap
     ) {
         return new GateGoldPlannerDTO(
@@ -51,18 +47,15 @@ public class GoldPlannerMapper {
                 gate.getNumber(),
                 false,
                 gate.getGateDetails().stream()
-                        .map(d -> toGateDetailsDTO(d, progressMap, rewardsMap))
+                        .map(d -> toGateDetailsDTO(d, rewardsMap))
                         .toList()
         );
     }
 
     private static GateDetailsGoldPlannerDTO toGateDetailsDTO(
             GateDetails details,
-            Map<UUID, CharacterGateProgress> progressMap,
             Map<UUID, List<Reward>> rewardsMap
     ) {
-        CharacterGateProgress progress = progressMap.get(details.getId());
-
         List<Reward> rewards =
                 rewardsMap.getOrDefault(details.getId(), List.of());
 
@@ -73,8 +66,7 @@ public class GoldPlannerMapper {
                 details.getDifficulty().name(),
                 rewards.stream()
                         .map(GoldPlannerMapper::toRewardDTO)
-                        .toList(),
-                toProgressDTO(progress)
+                        .toList()
         );
     }
 
@@ -85,20 +77,6 @@ public class GoldPlannerMapper {
                 reward.getAmount(),
                 reward.getTypeRewards().getIcon(),
                 reward.getIsExtraReward()
-        );
-    }
-
-    private static CharacterGateProgressGoldPlannerDTO toProgressDTO(
-            CharacterGateProgress progress
-    ) {
-        if (progress == null) {
-            return null;
-        }
-
-        return new CharacterGateProgressGoldPlannerDTO(
-                progress.getId(),
-                progress.getIsCompleted(),
-                progress.getBuyExtraLoot()
         );
     }
 }

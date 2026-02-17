@@ -1,6 +1,5 @@
 package com.pm.loaplanner.dto.GateDetails;
 
-import com.pm.loaplanner.dto.CharacterGateProgress.CharacterGateProgressGoldPlannerDTO;
 import com.pm.loaplanner.dto.Rewards.RewardGoldPlannerDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,5 +15,4 @@ public class GateDetailsGoldPlannerDTO {
     private int extralootCost;
     private String difficulty;
     private List<RewardGoldPlannerDTO> rewards;
-    private CharacterGateProgressGoldPlannerDTO progress;
 }
