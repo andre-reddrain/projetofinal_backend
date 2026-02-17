@@ -20,7 +20,7 @@ public class CharacterRaidController {
     }
 
     @GetMapping
-    @Operation(summary = "Get all the Character Raids of a Character.")
+    @Operation(summary = "Get all the Character Raids of multiple Characters.")
     public ResponseEntity<List<CharacterRaidResponseDTO>> getCharacterRaidsByCharacterIds(@RequestParam List<UUID> characterIds) {
         List<CharacterRaidResponseDTO> characterRaids = characterRaidService.getCharacterRaidsByCharacterIds(characterIds);
         return ResponseEntity.ok().body(characterRaids);

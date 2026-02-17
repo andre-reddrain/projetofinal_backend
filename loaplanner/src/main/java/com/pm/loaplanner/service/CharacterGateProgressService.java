@@ -12,6 +12,9 @@ import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
 @Service
 public class CharacterGateProgressService {
     private final CharacterGateProgressRepository characterGateProgressRepository;
@@ -25,6 +28,14 @@ public class CharacterGateProgressService {
         this.characterGateProgressRepository = characterGateProgressRepository;
         this.characterRepository = characterRepository;
         this.gateDetailsRepository = gateDetailsRepository;
+    }
+
+    public List<CharacterGateProgressResponseDTO> getCharacterGateProgressByCharactersIds(List<UUID> characterIds) {
+        List<CharacterGateProgress> gateProgress = characterGateProgressRepository.findByCharacterIdIn(characterIds);
+        List<CharacterGateProgressResponseDTO> dtos =
+                gateProgress.stream().map(CharacterGateProgressMapper::toDTO).toList();
+
+        return dtos;
     }
 
     public CharacterGateProgressResponseDTO createCharacterGateProgress(CharacterGateProgressRequestDTO dto) {

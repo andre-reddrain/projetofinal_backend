@@ -10,4 +10,6 @@ import java.util.UUID;
 @Repository
 public interface CharacterGateProgressRepository extends JpaRepository<CharacterGateProgress, UUID> {
     List<CharacterGateProgress> findByCharacterId(UUID characterId);
+
+    List<CharacterGateProgress> findByCharacterIdIn(List<UUID> characterIds);
 }

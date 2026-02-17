@@ -6,11 +6,13 @@ import com.pm.loaplanner.service.CharacterGateProgressService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.UUID;
 
 @RestController
+@RequestMapping("/api/gate-progress")
 public class CharacterGateProgressController {
     private final CharacterGateProgressService characterGateProgressService;
 
@@ -18,8 +20,15 @@ public class CharacterGateProgressController {
         this.characterGateProgressService = characterGateProgressService;
     }
 
+    @GetMapping
+    @Operation(summary = "Get all the Character Gate Progress of multiple Characters.")
+    public ResponseEntity<List<CharacterGateProgressResponseDTO>> getCharacterGateProgressByCharactersIds(@RequestParam List<UUID> characterIds) {
+        List<CharacterGateProgressResponseDTO> characterGateProgress = characterGateProgressService.getCharacterGateProgressByCharactersIds(characterIds);
+        return ResponseEntity.ok().body(characterGateProgress);
+    }
+
+    @PostMapping
     @Operation(summary = "Create a new Character Gate Progress")
-    @PostMapping("/api/progress")
     public ResponseEntity<CharacterGateProgressResponseDTO> createProgress(@RequestBody CharacterGateProgressRequestDTO requestDTO) {
         CharacterGateProgressResponseDTO createdProgress = characterGateProgressService.createCharacterGateProgress(requestDTO);
 
