@@ -24,6 +24,9 @@ public class CharacterGateProgress {
     @Column(name = "is_completed")
     private Boolean isCompleted;
 
+    @Column(name = "taking_gold")
+    private Boolean takingGold;
+
     @Column(name = "buy_extra_loot")
     private Boolean buyExtraLoot;
 

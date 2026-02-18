@@ -9,6 +9,7 @@ public class CharacterGateProgressMapper {
         CharacterGateProgressResponseDTO dto = new CharacterGateProgressResponseDTO();
         dto.setId(characterGateProgress.getId().toString());
         dto.setIsCompleted(characterGateProgress.getIsCompleted());
+        dto.setTakingGold(characterGateProgress.getTakingGold());
         dto.setBuyExtraLoot(characterGateProgress.getBuyExtraLoot());
         dto.setGateName(characterGateProgress.getGateDetails().getGate().getName());
         return dto;
@@ -17,6 +18,7 @@ public class CharacterGateProgressMapper {
     public static CharacterGateProgress toModel(CharacterGateProgressRequestDTO dto) {
         CharacterGateProgress characterGateProgress = new CharacterGateProgress();
         characterGateProgress.setIsCompleted(dto.getIsCompleted());
+        characterGateProgress.setTakingGold(dto.getTakingGold());
         characterGateProgress.setBuyExtraLoot(dto.getBuyExtraLoot());
         return characterGateProgress;
     }

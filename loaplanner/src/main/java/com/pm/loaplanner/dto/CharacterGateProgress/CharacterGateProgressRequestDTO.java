@@ -11,6 +11,8 @@ import java.util.UUID;
 public class CharacterGateProgressRequestDTO {
     private Boolean isCompleted;
 
+    private Boolean takingGold;
+
     private Boolean buyExtraLoot;
 
     // FKs
