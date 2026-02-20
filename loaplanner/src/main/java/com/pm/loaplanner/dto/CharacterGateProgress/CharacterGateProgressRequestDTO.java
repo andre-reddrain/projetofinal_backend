@@ -20,5 +20,5 @@ public class CharacterGateProgressRequestDTO {
     private UUID characterId;
 
     @NotNull(message = "Gate Details is required")
-    private UUID gateDetailId;
+    private UUID gateDetailsId;
 }

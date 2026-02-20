@@ -7,11 +7,13 @@ import com.pm.loaplanner.mapper.CharacterGateProgressMapper;
 import com.pm.loaplanner.model.*;
 import com.pm.loaplanner.model.Character;
 import com.pm.loaplanner.repository.*;
+import jakarta.transaction.Transactional;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -53,7 +55,7 @@ public class CharacterGateProgressService {
 
             // Link FK GateDetailId
             //GateDetails gateDetails = gateDetailsRepository.findById(dto.getGateDetailId()).get();
-            GateDetails gateDetails = gateDetailsRepository.findByIdWithGate(dto.getGateDetailId()).get();
+            GateDetails gateDetails = gateDetailsRepository.findByIdWithGate(dto.getGateDetailsId()).get();
             newCharacterGateProgress.setGateDetails(gateDetails);
 
             newCharacterGateProgress.setIsCompleted(false);
@@ -67,5 +69,40 @@ public class CharacterGateProgressService {
             System.out.println(ex.getMessage());
             throw new ApiException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal Server Error");
         }
+    }
+
+    @Transactional
+    public List<CharacterGateProgressResponseDTO> bulkUpsertProgress(List<CharacterGateProgressRequestDTO> dtos) {
+        List<CharacterGateProgress> toSave = new ArrayList<>(dtos.size());
+
+        for (CharacterGateProgressRequestDTO dto : dtos) {
+            CharacterGateProgress entity = characterGateProgressRepository
+                    .findByCharacterIdAndGateDetailsId(dto.getCharacterId(), dto.getGateDetailsId())
+                    .orElseGet(() -> {
+                        CharacterGateProgress created = new CharacterGateProgress();
+
+                        // Link FK Character
+                        Character character = characterRepository.findById(dto.getCharacterId())
+                                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Character Not Found"));
+                        created.setCharacter(character);
+
+                        // Link FK GateDetails
+                        GateDetails gateDetails = gateDetailsRepository.findById(dto.getGateDetailsId())
+                                    .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "GateDetails Not found"));
+                        created.setGateDetails(gateDetails);
+
+                        return created;
+                    });
+
+            // Update other fields
+            entity.setTakingGold(dto.getTakingGold());
+            entity.setBuyExtraLoot(dto.getBuyExtraLoot());
+
+            toSave.add(entity);
+        }
+
+        List<CharacterGateProgress> saved = characterGateProgressRepository.saveAll(toSave);
+
+        return saved.stream().map(CharacterGateProgressMapper::toDTO).toList();
     }
 }

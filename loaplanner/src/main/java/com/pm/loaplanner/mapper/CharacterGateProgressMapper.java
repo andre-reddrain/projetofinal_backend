@@ -8,6 +8,8 @@ public class CharacterGateProgressMapper {
     public static CharacterGateProgressResponseDTO toDTO(CharacterGateProgress characterGateProgress) {
         CharacterGateProgressResponseDTO dto = new CharacterGateProgressResponseDTO();
         dto.setId(characterGateProgress.getId().toString());
+        dto.setCharacterId(characterGateProgress.getCharacter().getId().toString());
+        dto.setGateDetailsId(characterGateProgress.getGateDetails().getId().toString());
         dto.setIsCompleted(characterGateProgress.getIsCompleted());
         dto.setTakingGold(characterGateProgress.getTakingGold());
         dto.setBuyExtraLoot(characterGateProgress.getBuyExtraLoot());

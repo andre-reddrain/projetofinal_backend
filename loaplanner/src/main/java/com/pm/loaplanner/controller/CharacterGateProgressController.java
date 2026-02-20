@@ -34,4 +34,12 @@ public class CharacterGateProgressController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProgress);
     }
+
+    @PutMapping("/bulk")
+    @Operation(summary = "Bulk upsert of Character Gate Progress")
+    public ResponseEntity<List<CharacterGateProgressResponseDTO>> bulkUpsertProgress(@RequestBody List<CharacterGateProgressRequestDTO> requestDTOs) {
+        List<CharacterGateProgressResponseDTO> result = characterGateProgressService.bulkUpsertProgress(requestDTOs);
+
+        return ResponseEntity.ok().body(result);
+    }
 }

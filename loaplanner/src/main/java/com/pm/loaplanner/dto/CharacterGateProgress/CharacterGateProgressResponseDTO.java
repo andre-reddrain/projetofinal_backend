@@ -7,6 +7,8 @@ import lombok.Setter;
 @Setter
 public class CharacterGateProgressResponseDTO {
     private String id;
+    private String characterId;
+    private String gateDetailsId;
     private Boolean isCompleted;
     private Boolean takingGold;
     private Boolean buyExtraLoot;
