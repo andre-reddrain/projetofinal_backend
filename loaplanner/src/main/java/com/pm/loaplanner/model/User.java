@@ -8,7 +8,6 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
-@Data
 @Getter
 @Setter
 @Table(name = "users")
