@@ -15,6 +15,8 @@ public class CharacterGateProgressRequestDTO {
 
     private Boolean buyExtraLoot;
 
+    private Boolean selected;
+
     // FKs
     @NotNull(message = "Character is required")
     private UUID characterId;

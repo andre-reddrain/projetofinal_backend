@@ -12,5 +12,6 @@ public class CharacterGateProgressResponseDTO {
     private Boolean isCompleted;
     private Boolean takingGold;
     private Boolean buyExtraLoot;
+    private Boolean selected;
     private String gateName;
 }

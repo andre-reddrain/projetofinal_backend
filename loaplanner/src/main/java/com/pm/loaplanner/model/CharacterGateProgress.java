@@ -30,6 +30,9 @@ public class CharacterGateProgress {
     @Column(name = "buy_extra_loot")
     private Boolean buyExtraLoot;
 
+    @Column(name = "selected")
+    private Boolean selected;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "character_id", referencedColumnName = "id", nullable = false)
     private Character character;

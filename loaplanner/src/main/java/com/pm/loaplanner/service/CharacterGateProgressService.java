@@ -76,6 +76,17 @@ public class CharacterGateProgressService {
         List<CharacterGateProgress> toSave = new ArrayList<>(dtos.size());
 
         for (CharacterGateProgressRequestDTO dto : dtos) {
+
+            // Load GateDetails - needs gateId to verify selected
+            GateDetails gateDetails = gateDetailsRepository.findById(dto.getGateDetailsId())
+                    .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "GateDetails Not found"));
+
+            // If getSelected is true, all the other gateDetails from the same gate will have selected set to false
+            if(Boolean.TRUE.equals(dto.getSelected())) {
+                UUID gateId = gateDetails.getGate().getId();
+                characterGateProgressRepository.clearSelectedExcept(dto.getCharacterId(), gateId, gateDetails.getId());
+            }
+
             CharacterGateProgress entity = characterGateProgressRepository
                     .findByCharacterIdAndGateDetailsId(dto.getCharacterId(), dto.getGateDetailsId())
                     .orElseGet(() -> {
@@ -87,8 +98,6 @@ public class CharacterGateProgressService {
                         created.setCharacter(character);
 
                         // Link FK GateDetails
-                        GateDetails gateDetails = gateDetailsRepository.findById(dto.getGateDetailsId())
-                                    .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "GateDetails Not found"));
                         created.setGateDetails(gateDetails);
 
                         return created;
@@ -97,6 +106,7 @@ public class CharacterGateProgressService {
             // Update other fields
             entity.setTakingGold(dto.getTakingGold());
             entity.setBuyExtraLoot(dto.getBuyExtraLoot());
+            entity.setSelected(Boolean.TRUE.equals(dto.getSelected()));
 
             toSave.add(entity);
         }

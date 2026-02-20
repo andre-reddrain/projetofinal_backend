@@ -13,6 +13,7 @@ public class CharacterGateProgressMapper {
         dto.setIsCompleted(characterGateProgress.getIsCompleted());
         dto.setTakingGold(characterGateProgress.getTakingGold());
         dto.setBuyExtraLoot(characterGateProgress.getBuyExtraLoot());
+        dto.setSelected(characterGateProgress.getSelected());
         dto.setGateName(characterGateProgress.getGateDetails().getGate().getName());
         return dto;
     }
@@ -22,6 +23,7 @@ public class CharacterGateProgressMapper {
         characterGateProgress.setIsCompleted(dto.getIsCompleted());
         characterGateProgress.setTakingGold(dto.getTakingGold());
         characterGateProgress.setBuyExtraLoot(dto.getBuyExtraLoot());
+        characterGateProgress.setSelected(dto.getSelected());
         return characterGateProgress;
     }
 }
