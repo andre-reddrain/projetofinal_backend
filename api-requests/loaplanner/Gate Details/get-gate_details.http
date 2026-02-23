@@ -1,0 +1,5 @@
+### GET request to example server
+GET http://localhost:8080/api/gate-details?gateIds=2b9c6a45-dc76-11f0-a6e8-0a0027000013&gateIds=2b9c6aeb-dc76-11f0-a6e8-0a0027000013&gateIds=2b9c6b9c-dc76-11f0-a6e8-0a0027000013&gateIds=2b9c6c49-dc76-11f0-a6e8-0a0027000013
+Content-Type: application/json
+
+###

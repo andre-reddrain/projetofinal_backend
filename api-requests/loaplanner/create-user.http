@@ -1,0 +1,12 @@
+### POST Request Create a User (Register)
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "Teste Insert",
+  "email": "t2@t.com",
+  "password": "1234567890",
+  "confirmPassword": "1234567890"
+}
+
+###

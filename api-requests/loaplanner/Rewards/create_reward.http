@@ -1,0 +1,11 @@
+### POST Request Create a Reward
+POST http://localhost:8080/api/reward
+Content-Type: application/json
+
+{
+  "ammount": 555,
+  "isExtraReward": false,
+  "gateDetailsId": null,
+  "typeRewardId": "ddea5677-dd37-11f0-a6e8-0a0027000013"
+}
+###

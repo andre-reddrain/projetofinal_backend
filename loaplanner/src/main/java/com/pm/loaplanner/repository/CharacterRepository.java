@@ -1,0 +1,15 @@
+package com.pm.loaplanner.repository;
+
+import com.pm.loaplanner.model.Character;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.UUID;
+
+@Repository
+public interface CharacterRepository extends JpaRepository<Character, UUID> {
+    List<Character> findByUserId(UUID userId);
+
+    List<Character> findByUserIdOrderByIlvlDesc(UUID userId);
+}

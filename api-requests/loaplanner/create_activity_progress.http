@@ -1,0 +1,15 @@
+### GET request to example server
+POST http://localhost:8080/api/activity/progress
+Content-Type: application/json
+
+{
+  "userId": "223e4567-e89b-12d3-a456-426614174006",
+  "characterId": "cd088823-d8b0-498e-a6e7-ae3a5f111b0b",
+  "activityId": "1781f6af-e0eb-11f0-a6e8-0a0027000013"
+}
+
+### Character Type
+### "activityId": "1781f6af-e0eb-11f0-a6e8-0a0027000013"
+
+### Roster Type
+### "activityId": "17820c2c-e0eb-11f0-a6e8-0a0027000013"

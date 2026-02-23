@@ -1,0 +1,4 @@
+### GET request to get all raids
+GET http://localhost:8080/api/raids
+
+###
