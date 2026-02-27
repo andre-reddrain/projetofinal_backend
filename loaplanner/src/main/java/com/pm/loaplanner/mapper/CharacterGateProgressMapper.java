@@ -10,6 +10,8 @@ public class CharacterGateProgressMapper {
         dto.setId(characterGateProgress.getId().toString());
         dto.setCharacterId(characterGateProgress.getCharacter().getId().toString());
         dto.setGateDetailsId(characterGateProgress.getGateDetails().getId().toString());
+        dto.setGateId(characterGateProgress.getGateDetails().getGate().getId().toString());
+        dto.setRaidId(characterGateProgress.getGateDetails().getGate().getRaid().getId().toString());
         dto.setIsCompleted(characterGateProgress.getIsCompleted());
         dto.setTakingGold(characterGateProgress.getTakingGold());
         dto.setBuyExtraLoot(characterGateProgress.getBuyExtraLoot());

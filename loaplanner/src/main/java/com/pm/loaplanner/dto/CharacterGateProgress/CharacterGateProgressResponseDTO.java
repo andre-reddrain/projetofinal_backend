@@ -9,6 +9,8 @@ public class CharacterGateProgressResponseDTO {
     private String id;
     private String characterId;
     private String gateDetailsId;
+    private String gateId;
+    private String raidId;
     private Boolean isCompleted;
     private Boolean takingGold;
     private Boolean buyExtraLoot;
