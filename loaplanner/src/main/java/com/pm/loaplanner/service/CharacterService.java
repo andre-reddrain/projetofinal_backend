@@ -23,18 +23,21 @@ public class CharacterService {
     private final CharacterClassesRepository characterClassesRepository;
     private final RaidRepository raidRepository;
     private final CharacterRaidRepository characterRaidRepository;
+    private final CharacterGateProgressRepository characterGateProgressRepository;
 
     public CharacterService(
             CharacterRepository characterRepository,
             UserRepository userRepository,
             CharacterClassesRepository characterClassesRepository,
             RaidRepository raidRepository,
-            CharacterRaidRepository characterRaidRepository) {
+            CharacterRaidRepository characterRaidRepository,
+            CharacterGateProgressRepository characterGateProgressRepository) {
         this.characterRepository = characterRepository;
         this.userRepository = userRepository;
         this.characterClassesRepository = characterClassesRepository;
         this.raidRepository = raidRepository;
         this.characterRaidRepository = characterRaidRepository;
+        this.characterGateProgressRepository = characterGateProgressRepository;
     }
 
     public CharacterResponseDTO createCharacter(UUID userId, CharacterRequestDTO characterRequestDTO) {
@@ -93,6 +96,9 @@ public class CharacterService {
     public void deleteCharacter(UUID id) {
         // Bulk Delete of CharacterRaids
         characterRaidRepository.deleteByCharacterId(id);
+
+        // Bulk Delete of CharacterGateProgress
+        characterGateProgressRepository.deleteByCharacterId(id);
 
         // Delete Character
         characterRepository.deleteById(id);
