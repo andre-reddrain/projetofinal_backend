@@ -19,7 +19,7 @@ public class CorsConfig {
         config.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
 
         // Allowed HTTP methods
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 
         // Allowed headers
         config.setAllowedHeaders(Arrays.asList("*"));

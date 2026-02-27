@@ -17,6 +17,7 @@ public class CharacterGateProgressMapper {
         dto.setBuyExtraLoot(characterGateProgress.getBuyExtraLoot());
         dto.setSelected(characterGateProgress.getSelected());
         dto.setGateName(characterGateProgress.getGateDetails().getGate().getName());
+        dto.setGateNumber(characterGateProgress.getGateDetails().getGate().getNumber());
         return dto;
     }
 

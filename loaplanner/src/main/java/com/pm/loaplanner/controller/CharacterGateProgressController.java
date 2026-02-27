@@ -42,4 +42,14 @@ public class CharacterGateProgressController {
 
         return ResponseEntity.ok().body(result);
     }
+
+    @PatchMapping("/{id}/complete")
+    @Operation(summary = "Sets a Character Gate Progress to Completed")
+    public ResponseEntity<Void> setComplete(
+            @PathVariable UUID id,
+            @RequestParam boolean value
+    ) {
+        characterGateProgressService.setCompleted(id, value);
+        return ResponseEntity.noContent().build();
+    }
 }

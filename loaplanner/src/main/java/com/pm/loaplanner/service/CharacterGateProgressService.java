@@ -115,4 +115,12 @@ public class CharacterGateProgressService {
 
         return saved.stream().map(CharacterGateProgressMapper::toDTO).toList();
     }
+
+    @Transactional
+    public void setCompleted(UUID id, boolean value) {
+        CharacterGateProgress progress = characterGateProgressRepository.findById(id)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Character Not Found"));
+
+        progress.setIsCompleted(value);
+    }
 }
