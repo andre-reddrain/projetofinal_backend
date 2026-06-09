@@ -13,6 +13,7 @@
     <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/V1__init_migration.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/V2__type_rewards_table.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/loaplanner/src/main/resources/db/migration/V5__gate_details_table.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/rewards-service/src/main/resources/db/migration/V1__rewards_tables.sql" dialect="MySQL" />
     <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>

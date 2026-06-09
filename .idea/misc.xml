@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/loaplanner/pom.xml" />
+        <option value="$PROJECT_DIR$/rewards-service/pom.xml" />
       </list>
     </option>
   </component>
